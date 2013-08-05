@@ -9,7 +9,7 @@
     Email Composer Plugin with Attachments
   </description>
 
-  <asset src="www/PushNotification.js" target="PushNotification.js" />
+  <asset src="www/EmailComposer.js" target="EmailComposer.js" />
 
   <engines>
     <engine name="cordova" version=">=2.0.0" />
