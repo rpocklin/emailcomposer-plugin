@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-    id="com.appgyver.plugins.EmailComposerPlugin"
+    id="com.appgyver.plugins.emailcomposerplugin"
     version="1.0.0">
 
     <name>EmailComposerPlugin</name>
@@ -9,20 +9,26 @@
     Email Composer Plugin with Attachments
   </description>
 
-  <asset src="www/EmailComposer.js" target="EmailComposer.js" />
+  <asset src="www/EmailComposer.js" target="plugins/EmailComposer.js" />
 
   <engines>
-    <engine name="cordova" version=">=2.0.0" />
+    <engine name="cordova" version=">=2.2.0" />
   </engines>
 
   <!-- ios -->
   <platform name="ios">
-    <config-file target="config.xml" parent="plugins">
+    <config-file target="config.xml" parent="/*/plugins">
       <plugin name="EmailComposer" value="EmailComposer" onload="true"/>
     </config-file>
 
+    <config-file target="config.xml" parent="/widget">
+      <feature name="EmailComposer">
+        <param name="ios-package" value="EmailComposer"/>
+      </feature>
+    </config-file>
 
     <header-file src="src/iOS/EmailComposer.h" />
+
     <source-file src="src/iOS/EmailComposer.m" />
 
   </platform>
