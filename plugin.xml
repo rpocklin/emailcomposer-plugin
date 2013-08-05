@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    id="com.appgyver.plugins.EmailComposerPlugin"
+    version="1.0.0">
+
+    <name>EmailComposerPlugin</name>
+
+  <description>
+    Email Composer Plugin with Attachments
+  </description>
+
+  <asset src="www/PushNotification.js" target="PushNotification.js" />
+
+  <engines>
+    <engine name="cordova" version=">=2.0.0" />
+  </engines>
+
+  <!-- ios -->
+  <platform name="ios">
+    <config-file target="config.xml" parent="plugins">
+      <plugin name="EmailComposer" value="EmailComposer" onload="true"/>
+    </config-file>
+
+
+    <header-file src="src/ios/EmailComposer.h" />
+    <source-file src="src/ios/EmailComposer.h" />
+
+    <header-file src="src/ios/EmailComposer.m" />
+    <source-file src="src/ios/EmailComposer.m" />
+  </platform>
+</plugin>
