@@ -22,10 +22,8 @@
     </config-file>
 
 
-    <header-file src="src/ios/EmailComposer.h" />
-    <source-file src="src/ios/EmailComposer.h" />
+    <header-file src="src/iOS/EmailComposer.h" />
+    <source-file src="src/iOS/EmailComposer.m" />
 
-    <header-file src="src/ios/EmailComposer.m" />
-    <source-file src="src/ios/EmailComposer.m" />
   </platform>
 </plugin>
