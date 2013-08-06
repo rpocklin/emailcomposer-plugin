@@ -5,11 +5,11 @@ function EmailComposer() {
 }
 
 EmailComposer.ComposeResultType = {
-Cancelled:0,
-Saved:1,
-Sent:2,
-Failed:3,
-NotSent:4
+    Cancelled:0,
+    Saved:1,
+    Sent:2,
+    Failed:3,
+    NotSent:4
 }
 
 
@@ -50,6 +50,6 @@ cordova.addConstructor(function()  {
 					   {
 					   window.plugins = {};
 					   }
-					   
+             
 					   window.plugins.emailComposer = new EmailComposer();
 					   });
