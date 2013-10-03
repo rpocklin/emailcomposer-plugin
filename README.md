@@ -1,7 +1,7 @@
 appgyver-emailcomposer-plugin
 =============================
 
-[Plugman](https://github.com/apache/cordova-plugman)-compatible e-mail composer plugin with attachements, cobmined from https://github.com/phonegap/phonegap-plugins/tree/master/iOS/EmailComposerWithAttachments and https://github.com/phonegap/phonegap-plugins/tree/master/Android/EmailComposerWithAttachments
+[Plugman](https://github.com/apache/cordova-plugman)-compatible email composer plugin with attachements, combined from [EmailComposer Plugin for iOS](https://github.com/phonegap/phonegap-plugins/tree/master/iOS/EmailComposerWithAttachments) and [EmailComposer Plugin for Android](https://github.com/phonegap/phonegap-plugins/tree/master/Android/EmailComposerWithAttachments)
 
 # EmailComposer with attachments handling
 
