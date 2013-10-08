@@ -1,64 +1,72 @@
-appgyver-emailcomposer-plugin
-=============================
+# EmailComposer with attachments handling
 
 [Plugman](https://github.com/apache/cordova-plugman)-compatible email composer plugin with attachements, combined from [EmailComposer Plugin for iOS](https://github.com/phonegap/phonegap-plugins/tree/master/iOS/EmailComposerWithAttachments) and [EmailComposer Plugin for Android](https://github.com/phonegap/phonegap-plugins/tree/master/Android/EmailComposerWithAttachments)
 
-# EmailComposer with attachments handling
+## Usage with Steroids
 
-**Update: VERSION 1.1**
-Now the plugin can handle any type of attachments, not only images or PDFs
+Download the `www/EmailComposer.js` file from this repo, and include it in your project (e.g. `www/plugins/EmailComposer.js`). Then, load the JavaScript file with a `<script>` tag:
 
-**Description**
-This is a modification of the EmailComposer iOS plugin made by **Randy McMillan**
-In this version of the plugin, you can attach images and PDF files to emails. A little refactoring was made.
-It is compliant with Cordova 2.2.0 standard (new CDVInvokedUrlCommand parameter sent to native methods). If you want to use the plugin with an older version of Cordova you must comment the method
+```
+<script src="/plugins/EmailComposer.js"></script>
+```
 
-	showEmailComposer:(CDVInvokedUrlCommand*)command;
-	
-and uncomment the method
+Now, you should have `window.plugins.emailComposer` defined in your WebView.
 
-	showEmailComposer:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options;
-	
-both in EmailComposer.h and EmailComposer.m files
+### JavaScript API
 
-**IMPORTANT:** You will need to add MessageUI.framework to your project if it is not already included.
+There are two methods you can use to show the email composer window:
 
-**IMPORTANT:** by now, you can attach only PDF and IMAGES (the latter will be convertend in PNG format)
-
-- Add the EmailComposer.h EmailComposer.m  files to your Plugins Folder.
-
-- Place the EmailComposer.js file somewhere in your www folder, and include it from your html.
-
-- Add to Cordova.plist Plugins: key **EmailComposer** value **EmailComposer**
-
-Callable interface:
-
-	window.plugins.emailComposer.showEmailComposerWithCallback(callback,subject,body,toRecipients,ccRecipients,bccRecipients,isHtml,attachments);
+```
+window.plugins.emailComposer.showEmailComposerWithCallback(callback,subject,body,toRecipients,ccRecipients,bccRecipients,isHtml,attachments);
+```
 
 or
 
-	window.plugins.emailComposer.showEmailComposer(subject,body,toRecipients,ccRecipients,bccRecipients,isHtml,attachments);
+```
+window.plugins.emailComposer.showEmailComposer(subject,body,toRecipients,ccRecipients,bccRecipients,isHtml,attachments);
+```
 
 **Parameters:**
-- callback: a js function that will receive return parameter from the plugin
+- callback: a JavaScript function that will receive return parameter from the plugin
 - subject: a string representing the subject of the email; can be null
 - body: a string representing the email body (could be HTML code, in this case set **isHtml** to **true**); can be null
-- toRecipients: a js array containing all the email addresses for TO field; can be null/empty
-- ccRecipients: a js array containing all the email addresses for CC field; can be null/empty
-- bccRecipients: a js array containing all the email addresses for BCC field; can be null/empty
-- isHtml: a bool value indicating if the body is HTML or plain text
-- attachments: a js array containing all full paths to the files you want to attach; can be null/empty (in format /var/mobile/...)
+- toRecipients: an array containing all the email addresses for TO field; can be null/empty
+- ccRecipients: an array containing all the email addresses for CC field; can be null/empty
+- bccRecipients: an array containing all the email addresses for BCC field; can be null/empty
+- isHtml: a boolean value indicating if the body is HTML or plain text
+- attachments: an array containing all full paths to the files you want to attach; can be null/empty (in format /var/mobile/...)
 
 **Example**
 
-	window.plugins.emailComposer.showEmailComposerWithCallback(function(result){console.log(result);},"Look at this photo","Take a look at <b>this<b/>:",["example@email.com", "johndoe@email.org"],[],[],true,["_complete_path/image.jpg"]);
+```
+var ops = {
+  callback: function(result){console.log(result);},
+  subject: "Look at this photo",
+  body: "Take a look at <b>this</b>:"
+  toRecipients: ["example@email.com", "johndoe@email.org"],
+  ccRecipients: [],
+  bccRecipients: [],
+  isHTML: true,
+  attachments: ["_complete_path/image.png"]
+}
 
-**Return values**
+window.plugins.emailComposer.showEmailComposerWithCallback(ops.callback, ops.subject, ops.body, ops.toRecipients, ops.ccRecipients, ops.bccRecipients, ops.isHTML, ops.attachments);
+```
+
+**Return values for callback function**
 - 0: email composition cancelled (cancel button pressed and draft not saved)
 - 1: email saved (cancel button pressed but draft saved)
 - 2: email sent
 - 3: send failed
 - 4: email not sent (something wrong happened)
+
+### Installing the plugin
+
+To use the EmailComposer plugin with Steroids, you need to create a custom Scanner (or Ad Hoc) build of your app using the AppGyver Build Serivce. See the instructions at http://guides.appgyver.com/steroids/guides/cloud_services/plugin-config/ for more information.
+
+##Known issues
+
+Opening the email compose window from a modal window (opened via `steroids.modal.show()`) might cause errant behavior.
 
 # LICENSE
 The MIT License
