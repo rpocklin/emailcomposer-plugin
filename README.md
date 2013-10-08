@@ -64,6 +64,20 @@ window.plugins.emailComposer.showEmailComposerWithCallback(ops.callback, ops.sub
 
 To use the EmailComposer plugin with Steroids, you need to create a custom Scanner (or Ad Hoc) build of your app using the AppGyver Build Serivce. See the instructions at http://guides.appgyver.com/steroids/guides/cloud_services/plugin-config/ for more information.
 
+### Setting up config.xml
+
+On iOS, in your Steroids project's `www/config.ios.xml`, add the following tag inside the `<plugins>` tag:
+
+```
+<plugin name="EmailComposer" value="EmailComposer" onload="true"/>
+```
+
+On Android, add to `www/config.android.xml` the tag:
+
+```
+<plugin name="EmailComposer" value="org.apache.cordova.EmailComposer"/>
+```
+
 ##Known issues
 
 Opening the email compose window from a modal window (opened via `steroids.modal.show()`) might cause errant behavior.
