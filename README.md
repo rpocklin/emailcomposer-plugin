@@ -1,5 +1,11 @@
 # EmailComposer with attachments handling
 
+## Notice
+
+*This plugin only works with Steroids 2.7.x. For Steroids 3.1.x, you should use https://github.com/jcjee/email-composer/ instead.*
+
+## Plugin
+
 [Plugman](https://github.com/apache/cordova-plugman)-compatible email composer plugin with attachements, combined from [EmailComposer Plugin for iOS](https://github.com/phonegap/phonegap-plugins/tree/master/iOS/EmailComposerWithAttachments) and [EmailComposer Plugin for Android](https://github.com/phonegap/phonegap-plugins/tree/master/Android/EmailComposerWithAttachments)
 
 ## Usage with Steroids
