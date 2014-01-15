@@ -2,7 +2,7 @@
 
 ## Notice
 
-*This plugin only works with Steroids 2.7.x. For Steroids 3.1.x, you should use https://github.com/jcjee/email-composer/ instead.*
+*This plugin only works with Steroids 2.7.x. For Steroids 3.1.x, you should use https://github.com/AppGyver/email-composer/ instead.*
 
 ## Plugin
 
