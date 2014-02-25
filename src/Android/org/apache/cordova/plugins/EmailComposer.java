@@ -21,9 +21,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.Html;
 
-import org.apache.cordova.api.CallbackContext;
-import org.apache.cordova.api.CordovaPlugin;
-import org.apache.cordova.api.LOG;
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.LOG;
 
 public class EmailComposer extends CordovaPlugin {
 
